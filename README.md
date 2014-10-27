@@ -1,4 +1,4 @@
-MATLAB_Patch1098655.munki
+MATLAB_Patch1098655 pkginfo
 =========================
 
 Get around the applescript based install of the Yosemite compatibility patch for Matlab - deploy with Munki. Specific pkginfo for 2013a release, but easily adaptable.
