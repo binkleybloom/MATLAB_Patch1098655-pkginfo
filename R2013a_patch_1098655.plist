@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>autoremove</key>
+	<false/>
+	<key>blocking_applications</key>
+	<array>
+		<string>MATLAB_2013a</string>
+	</array>
+	<key>catalogs</key>
+	<array>
+		<string>production</string>
+	</array>
+	<key>description</key>
+	<string>Matlab 2013a patch for OS X 10.10 (Yosemite) compatibility.</string>
+	<key>display_name</key>
+	<string>Matlab 2013a Patch 1098655</string>
+	<key>installcheck_script</key>
+	<string>#!/bin/bash
+
+if [ -d "/Applications/MATLAB_R2013a.app" ]; then
+	echo "Matlab 2013a installed"
+	if [ -e "/Applications/MATLAB_R2013a.app/java/patch/com/mathworks/widgets/WindowsWidgetFactory.class" ]; then
+	    echo "Matlab 2013a Patch 1098655 already applied"
+	    exit 1
+	else 
+		exit 0
+	fi
+else
+	echo "MATLAB 2013a not installed"
+	exit 1
+fi</string>
+	<key>installer_item_hash</key>
+	<string>844bf40bea23912f3e8ae948e8dd753179151aa8df61412337936900734fdc98</string>
+	<key>installer_item_location</key>
+	<string>apps/mathworks/R2013a_patch_1098655.dmg</string>
+	<key>installer_item_size</key>
+	<integer>100</integer>
+	<key>installer_type</key>
+	<string>copy_from_dmg</string>
+	<key>installs</key>
+	<array>
+		<dict>
+			<key>md5checksum</key>
+			<string>c35da7dd994e811a225f90a5b8ead20f</string>
+			<key>path</key>
+			<string>/Applications/MATLAB_R2013a.app/java/patch/com/mathworks/widgets/WindowsWidgetFactory.class</string>
+			<key>type</key>
+			<string>file</string>
+		</dict>
+	</array>
+	<key>items_to_copy</key>
+	<array>
+		<dict>
+			<key>destination_path</key>
+			<string>/Applications/MATLAB_R2013a.app/java/</string>
+			<key>source_item</key>
+			<string>matlab/java/patch</string>
+		</dict>
+	</array>
+	<key>minimum_munki_version</key>
+	<string>0.9.2</string>
+	<key>minimum_os_version</key>
+	<string>10.7</string>
+	<key>name</key>
+	<string>R2013a_patch_1098655</string>
+	<key>requires</key>
+	<array>
+		<string>JavaForOSX</string>
+		<string>Matlab 2013a</string>
+	</array>
+	<key>supported_architectures</key>
+	<array>
+		<string>x86_64</string>
+	</array>
+	<key>unattended_install</key>
+	<true/>
+	<key>uninstallable</key>
+	<false/>
+	<key>version</key>
+	<string>2013aP1098655</string>
+</dict>
+</plist>
